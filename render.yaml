@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: minicraft
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: SEED          # 任意。数字/文字列。空ならランダム
+        sync: false
+      - key: ADMIN_KEY     # 任意。設定するとゲーム内からシード変更が可能
+        sync: false
